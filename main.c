@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS  // 오류 무시
+
 #include <stdio.h>
 #include <string.h>  // 문자열 사용
 #include <stdlib.h>  // 랜덤 난수 값
@@ -22,6 +24,32 @@ void generateRandomNumbers(int* numbers, int count) {
     }
 }
 
+// 점수판 로깅
+void ScoreLogging(int* score, char* name) {
+    time_t now_time;
+    char buf[256];
+
+    printf("%s %d", name, score);
+
+    time(&now_time);
+    ctime_s(buf, sizeof(buf), &now_time);
+
+    FILE* fp = NULL;
+
+    if (fopen_s(&fp, "log_score.json", "a") != 0) {
+        perror("파일 열기 실패");
+        return;
+    }
+
+    fprintf(fp, "{ \"score\": \"%d\", \"name\": \"%s\", \"timestamp\": \"%s\" }\n", score, name, buf);
+
+    fclose(fp);
+}
+
+void PrintLog() {
+
+}
+
 int main(void)
 
 {
@@ -29,12 +57,15 @@ int main(void)
 
     srand(time(NULL));  // 난수 초기화
     int CorrectNumber[3] = {0, 0, 0};
+    int score = 0;  // 몇 번 반복하여 맞췄는지
 
     generateRandomNumbers(CorrectNumber, 3);
 
     // 숫자 입력받기
     while (true) {
         int AnswerNumber[3];
+
+        score++;
 
         printf("숫자 입력 : ");
         for (int i = 0; i < 3; i++) {
@@ -91,7 +122,17 @@ int main(void)
         
     }
 
-    printf("~~~ 게임 종료 ~~~");
+    printf("~~~ 게임 종료 ~~~\n\n");
+
+    char name[100];
+
+    printf("이름 입력 : ");
+    scanf("%s", name);
+
+    printf("\n로깅 : %s %d", name, score);
+    ScoreLogging(score, name);
+
+    PrintLog();
 
     return 0;
 }

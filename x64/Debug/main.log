@@ -1,3 +1,9 @@
 ﻿  main.c
-E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(30,11): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(32,12): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'int *'입니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(32,12): warning C4313: 'printf': 서식 문자열의 '%d'이(가) int *' 형식의 인수 2과(와) 충돌합니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(44,17): warning C4477: 'fprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int *'입니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(44,17): warning C4313: 'fprintf': 서식 문자열의 '%d'이(가) int *' 형식의 인수 1과(와) 충돌합니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(54,11): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(129,18): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+E:\11. Study\C\C_NumBaseball\C_NumBaseball\main.c(129,18): warning C4024: 'ScoreLogging': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
   main.vcxproj -> E:\11. Study\C\C_NumBaseball\C_NumBaseball\x64\Debug\main.exe
